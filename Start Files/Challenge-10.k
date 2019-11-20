@@ -13,3 +13,49 @@ the following pattern in a 5×3 world.
 Another special case you need to consider is that of a world that is only
 one column wide or one row high.
 */
+import "turns";
+
+function evenRow(){
+	while(frontIsClear()){
+		if(noBeepersPresent()){
+			move();
+			putBeeper();
+		}else{
+			move();}
+	}
+	switchRowE();
+}
+
+function switchRowE(){
+	turnRight();
+	move();
+	turnRight();
+}
+
+function switchRowO(){
+	turnLeft();
+	move();
+	turnLeft();
+}
+
+function oddRow(){
+	while(frontIsClear()){
+		if(noBeepersPresent()){
+			move();
+			putBeeper();
+		}else{
+			move();}
+	}
+	switchRowO();
+}
+
+
+
+function Solve(){
+	while(frontIsClear()){
+		oddRow();
+		evenRow();
+	}
+	turnRight();
+}
+
